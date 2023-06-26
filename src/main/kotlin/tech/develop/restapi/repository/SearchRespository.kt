@@ -9,4 +9,5 @@ interface SearchRespository:CrudRepository<Search,Int> {
      @Query("SELECT s FROM Search as s")
      fun getAllSearches():List<Search>
 
+
 }

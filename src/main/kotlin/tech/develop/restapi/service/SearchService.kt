@@ -6,6 +6,6 @@ interface SearchService {
 
     fun createSearch(searchDTO: SearchDTO) : SearchDTO
 
-    fun getSearch():List<SearchDTO>
+    fun getSearch(search:String):List<SearchDTO>
 
 }

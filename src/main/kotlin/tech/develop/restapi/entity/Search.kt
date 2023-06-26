@@ -17,6 +17,8 @@ data class Search (
     @Column(name = "name" )
     val name : String,
     @Column(name = "url")
-    val url : String
+    val url : String,
+    @Column(name = "keywords")
+    val keywords : String
 )
 

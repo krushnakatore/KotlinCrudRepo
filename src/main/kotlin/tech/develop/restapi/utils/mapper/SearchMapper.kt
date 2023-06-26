@@ -12,13 +12,15 @@ class SearchMapper:Mapper<SearchDTO,Search>{
     override fun fromEntity(entity: Search): SearchDTO = SearchDTO(
              entity.id,
              entity.name,
-             entity.url
+             entity.url,
+             entity.keywords
          )
 
     override fun toEntity(domain: SearchDTO): Search = Search(
              domain.id,
              domain.name,
-             domain.url
+             domain.url,
+             domain.keywords
     )
 
 }

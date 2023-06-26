@@ -5,7 +5,8 @@ package tech.develop.restapi.dto
 data class SearchDTO (
     val id : Int ,
     val name : String,
-    val url : String
+    val url : String,
+    val keywords : String
 )
 
 

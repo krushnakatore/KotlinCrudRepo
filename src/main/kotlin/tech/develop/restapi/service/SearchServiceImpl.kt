@@ -14,28 +14,28 @@ class SearchServiceImpl(
 
     override fun createSearch(searchDTO: SearchDTO): SearchDTO {
 
-        print("The name is ${searchDTO.name}")
 //        if(searchDTO.id != -1)
 //            throw CustomException("Id must be null or -1")
 
         val entity = searchMapper.toEntity(searchDTO)
-        print("Entity created check $entity")
 
         val search = searchRespository.save(entity)
-        print("Search created check $search")
-
 
         return searchMapper.fromEntity(search)
 
     }
 
-    override fun getSearch(): List<SearchDTO> {
+    override fun getSearch(search:String): List<SearchDTO> {
         val searches = searchRespository.getAllSearches()
 
         if(searches.isEmpty())
             throw CustomException("The list is Empty")
 
-        return searches.map {
+        val filteredSearches = searches.filter {
+                   it.name.toLowerCase().contains(search.toLowerCase())
+                           || it.keywords.toLowerCase().contains(search.toLowerCase()) }
+
+        return filteredSearches.map {
             searchMapper.fromEntity(it)
         }
     }
